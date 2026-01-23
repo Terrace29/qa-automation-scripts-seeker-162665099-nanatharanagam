@@ -10,3 +10,4 @@ def test_get_users_api():
     data = response.json()
     assert isinstance(data,list)
     assert len(data) > 0
+    # End of script
