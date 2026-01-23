@@ -11,3 +11,4 @@ def test_get_users_api():
     assert isinstance(data,list)
     assert len(data) > 0
     # End of script
+    # start with second script
