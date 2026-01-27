@@ -36,3 +36,4 @@ def test_my_strings(texts):
 
     for text in texts:
         assert len(text) > 0
+
