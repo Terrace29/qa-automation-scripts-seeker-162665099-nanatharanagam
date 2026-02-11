@@ -72,6 +72,33 @@ def test_create_user_success():
      response = requests.post(url, json=payload)
      assert response.status_code == 400
 
+ #Cleanup(Avoid polluting DB / environment)
+
+
+import requests
+import uuid
+
+def test_create_user_and_cleanup():
+    base_url = "https://api.example.com/users"
+    unique_email = f"user_{uuid.uuid4()}@example.com"
+
+    payload = {
+        "name": "Test user",
+        "email": unique_email
+    }
+
+    create_resp = requests.post(base_url,json=payload)
+    assert create_resp.status_code == 201
+
+    user_id = create_resp.json()["id"]
+
+    delete_resp = requests.delete(f"{base_url}/{user_id}")
+    assert delete_resp.status_code in [200,204]
+
+
+
+
+
 
 
 
