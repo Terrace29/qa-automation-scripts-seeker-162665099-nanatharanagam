@@ -94,7 +94,8 @@ def test_create_user_and_cleanup():
 
     delete_resp = requests.delete(f"{base_url}/{user_id}")
     assert delete_resp.status_code in [200,204]
-    
+
+
 
 
 
